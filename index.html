@@ -11,27 +11,27 @@
 body{font-family:Arial,sans-serif}
 .topbar{background:var(--primary);color:#fff;padding:8px}
 .header{
-    background: linear-gradient(rgba(0,0,0,0.45),
-                rgba(0,0,0,0.45)),
-                url('IMG-20260623-WA0001.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 80px 20px;
-    text-align: center;
-    color: white;
+background: linear-gradient(rgba(0,0,0,0.45),
+rgba(0,0,0,0.45)),
+url('IMG-20260623-WA0001.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+padding: 80px 20px;
+text-align: center;
+color: white;
 }
 
 .header h1{
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
+font-size: 3rem;
+font-weight: 700;
+margin-bottom: 10px;
 }
 
 .header p{
-    font-size: 1.3rem;
+font-size: 1.3rem;
 }
-    .navbar{background:var(--primary)!important}
+.navbar{background:var(--primary)!important}
 .hero{height:70vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop') center/cover;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
 .section-title{color:var(--primary);margin-bottom:20px}
 .card{box-shadow:0 4px 12px rgba(0,0,0,.1)}
@@ -48,35 +48,50 @@ body{font-family:Arial,sans-serif}
 <h1>Sandesh Yadav Foundation</h1>
 <p>Education • Guidance • Opportunity</p>
 </div>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-<div class="container">
-<a class="navbar-brand" href="#">SYF</a>
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
-<div class="collapse navbar-collapse" id="nav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#du">Delhi University</a></li>
-<li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-</ul>
-</div>
-</div>
-        <!-- ================= SUPPORT US ================= -->
+<!-- ================= SUPPORT US SECTION ================= -->
+</div><!-- ================= SUPPORT US ================= -->
 
 <section class="container py-5">
 
+<h2 class="section-title text-center mb-4">
 <div class="card border-0 shadow-lg rounded-4 p-5 text-center">
 
 <h2 class="text-primary fw-bold mb-3">
 ❤️ Support Sandesh Yadav Foundation
 </h2>
 
+<div class="card shadow-lg border-0 p-5 text-center">
+
+<h3 class="mb-3">
+Help Us Empower More Students
+</h3>
+
+<p style="font-size:18px;line-height:1.8;">
+Your contribution helps us provide
+<strong>Free DU Admission Guidance</strong>,
+<strong>CUET Counselling</strong>,
+<strong>Preference Lists</strong>,
+Educational Resources and Career Support to thousands of students across India.
 <p class="lead text-muted">
 Your support helps us provide free DU Admission Guidance, CUET Counselling,
 Preference Lists, Study Materials and Career Guidance to thousands of students across India.
 </p>
 
+<br>
+
+<a href="https://upi://pay?pa=YOUR_UPI_ID@upi&pn=Sandesh%20Yadav%20Foundation&cu=INR"
+target="_blank"
+class="pay-btn">
+
+💳 Donate Now
+
+</a>
+
+<br><br>
+
+<p style="font-size:17px;color:#666;">
+Every Contribution Matters ❤️
+</p>
 <div class="row mt-4">
 
 <div class="col-md-4 mb-3">
@@ -87,6 +102,24 @@ Preference Lists, Study Materials and Career Guidance to thousands of students a
 </div>
 </div>
 
+</section>
+
+<style>
+
+.pay-btn{
+
+display:inline-block;
+padding:18px 45px;
+font-size:24px;
+font-weight:bold;
+color:white;
+text-decoration:none;
+border-radius:50px;
+
+background:linear-gradient(45deg,#ff512f,#dd2476);
+
+animation:blink 1s infinite,
+glow 1.5s infinite;
 <div class="col-md-4 mb-3">
 <div class="card h-100 border-0 shadow-sm p-3">
 <h1>📚</h1>
@@ -95,6 +128,7 @@ Preference Lists, Study Materials and Career Guidance to thousands of students a
 </div>
 </div>
 
+transition:.3s;
 <div class="col-md-4 mb-3">
 <div class="card h-100 border-0 shadow-sm p-3">
 <h1>🚀</h1>
@@ -103,14 +137,18 @@ Preference Lists, Study Materials and Career Guidance to thousands of students a
 </div>
 </div>
 
+}
 </div>
 
+.pay-btn:hover{
 <div class="mt-5 payment-box">
 
+transform:scale(1.08);
 <h3 class="mb-3 text-danger">
 💳 Donate Securely
 </h3>
 
+color:white;
 <form>
 <script
 src="https://checkout.razorpay.com/v1/payment-button.js"
@@ -119,16 +157,21 @@ async>
 </script>
 </form>
 
+}
 </div>
 
+@keyframes blink{
 <p class="mt-4 text-muted">
 🔒 100% Secure Payment via Razorpay
 </p>
 
+0%{opacity:1;}
 </div>
 
+50%{opacity:.4;}
 </section>
 
+100%{opacity:1;}
 <style>
 
 .payment-box{
@@ -142,14 +185,23 @@ border:3px solid #f4b400;
 @keyframes glow{
 
 0%{
+
+box-shadow:0 0 10px #ff512f;
+
 box-shadow:0 0 10px rgba(244,180,0,.4);
 }
 
 50%{
+
+box-shadow:0 0 35px #dd2476;
+
 box-shadow:0 0 30px rgba(244,180,0,.9);
 }
 
 100%{
+
+box-shadow:0 0 10px #ff512f;
+
 box-shadow:0 0 10px rgba(244,180,0,.4);
 }
 
@@ -158,166 +210,20 @@ box-shadow:0 0 10px rgba(244,180,0,.4);
 </style>
 
 <!-- ================= END ================= -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Tab</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-body{
-    background:#273F43;
-    background-image:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920");
-    background-size:cover;
-    background-position:center;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.25);
-}
-
-.container{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    color:white;
-}
-
-.logo{
-    font-size:72px;
-    font-weight:bold;
-    margin-bottom:30px;
-}
-
-.search-box{
-    width:650px;
-    max-width:90vw;
-    background:white;
-    border-radius:40px;
-    padding:15px 25px;
-    display:flex;
-    align-items:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.3);
-}
-
-.search-box input{
-    border:none;
-    outline:none;
-    width:100%;
-    font-size:18px;
-}
-
-.shortcuts{
-    margin-top:40px;
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.item{
-    width:90px;
-}
-
-.circle{
-    width:60px;
-    height:60px;
-    margin:auto;
-    border-radius:50%;
-    background:rgba(255,255,255,.15);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-}
-
-.item p{
-    margin-top:10px;
-    color:white;
-}
-</style>
-</head>
-
-<body>
-
-<div class="overlay"></div>
-
+<nav class="navbar navbar-expand-lg navbar-dark">
 <div class="container">
-
-<div class="logo">Google</div>
-
-<div class="search-box">
-<input type="text" id="search" placeholder="Search Google or type a URL">
+<a class="navbar-brand" href="#">SYF</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+<li class="nav-item"><a class="nav-link" href="#du">Delhi University</a></li>
+<li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
 </div>
-
-<div class="shortcuts">
-
-<div class="item">
-<div class="circle">▶</div>
-<p>YouTube</p>
 </div>
-
-<div class="item">
-<div class="circle">G</div>
-<p>Gmail</p>
-</div>
-
-<div class="item">
-<div class="circle">🗺</div>
-<p>Maps</p>
-</div>
-
-<div class="item">
-<div class="circle">📁</div>
-<p>Drive</p>
-</div>
-
-<div class="item">
-<div class="circle">+</div>
-<p>Add</p>
-</div>
-
-</div>
-
-</div>
-
-<script>
-const input=document.getElementById("search");
-
-input.addEventListener("keydown",function(e){
-
-if(e.key==="Enter"){
-
-let text=input.value.trim();
-
-if(text.startsWith("http://") || text.startsWith("https://")){
-window.location=text;
-}
-else{
-window.location="https://www.google.com/search?q="+encodeURIComponent(text);
-}
-
-}
-
-});
-</script>
-
-</body>
-</html>
 </nav>
 
 <div class="ticker"><span id="ticker">Welcome to Sandesh Yadav Foundation</span></div>
@@ -331,110 +237,110 @@ window.location="https://www.google.com/search?q="+encodeURIComponent(text);
 </section>
 
 <section id="about" class="container py-5">
-    <h2 class="section-title">Founder Message</h2>
+<h2 class="section-title">Founder Message</h2>
 
-    <div class="card p-4">
-        <p>
-            Sandesh Yadav Foundation is dedicated to empowering students through
-            quality educational guidance, career awareness, and equal learning
-            opportunities. Founded with the vision of helping students make informed
-            academic decisions, the foundation provides reliable information on
-            CUET, Delhi University admissions, scholarships, career pathways,
-            and higher education opportunities. Through digital initiatives,
-            counseling support, and educational content, we strive to bridge
-            the information gap and inspire students to achieve their goals
-            with confidence and determination.
-        </p>
-    </div>
-</section>
-    <p class="mt-3 text-end">
-    <strong>— Sandesh Yadav</strong><br>
-    Founder, Sandesh Yadav Foundation
+<div class="card p-4">
+<p>
+Sandesh Yadav Foundation is dedicated to empowering students through
+quality educational guidance, career awareness, and equal learning
+opportunities. Founded with the vision of helping students make informed
+academic decisions, the foundation provides reliable information on
+CUET, Delhi University admissions, scholarships, career pathways,
+and higher education opportunities. Through digital initiatives,
+counseling support, and educational content, we strive to bridge
+the information gap and inspire students to achieve their goals
+with confidence and determination.
 </p>
-    
+</div>
+</section>
+<p class="mt-3 text-end">
+<strong>— Sandesh Yadav</strong><br>
+Founder, Sandesh Yadav Foundation
+</p>
+
 <section id="du" class="container py-5">
 <h2 class="section-title">Uiversity Of Delhi</h2>
 <div class="row g-4">
-    <section id="pdfs" class="container py-5">
-    <h2 class="section-title">Latest Study Material</h2>
+<section id="pdfs" class="container py-5">
+<h2 class="section-title">Latest Study Material</h2>
 
-    <div class="card p-4 shadow-sm">
-        <h4>B.Sc. Physical Science Semester 5</h4>
-        <p class="text-muted">
-            Semester 5 PDF Notes / Study Material.
-        </p>
+<div class="card p-4 shadow-sm">
+<h4>B.Sc. Physical Science Semester 5</h4>
+<p class="text-muted">
+Semester 5 PDF Notes / Study Material.
+</p>
 
-        <a href="pdfs/bsc-phy-sci-sem-5.pdf"
-           target="_blank"
-           class="btn btn-primary me-2">
-           View PDF
-        </a>
+<a href="pdfs/bsc-phy-sci-sem-5.pdf"
+target="_blank"
+class="btn btn-primary me-2">
+View PDF
+</a>
 
-        <a href="pdfs/bsc-phy-sci-sem-5.pdf"
-           download
-           class="btn btn-success">
-           Download PDF
-        </a>
-    </div>
-    </section>
-    
-    <div class="col-md-4">
-        <div class="card p-4 text-center h-100">
-            <h4>North Campus</h4>
-            <p class="text-muted">
-                Explore colleges of Delhi University's North Campus including top institutions and admission updates.
-            </p>
-           <a href="north-campus.html" class="btn btn-primary">Explore</a>
-        </div>
-    </div>
+<a href="pdfs/bsc-phy-sci-sem-5.pdf"
+download
+class="btn btn-success">
+Download PDF
+</a>
+</div>
+</section>
 
-    <div class="col-md-4">
-        <div class="card p-4 text-center h-100">
-            <h4>South Campus</h4>
-            <p class="text-muted">
-                Find information about South Campus colleges, courses, cut-offs and admissions.
-            </p>
-            <a href="south-campus.html" class="btn btn-primary">Explore</a>
-        </div>
-    </div>
+<div class="col-md-4">
+<div class="card p-4 text-center h-100">
+<h4>North Campus</h4>
+<p class="text-muted">
+Explore colleges of Delhi University's North Campus including top institutions and admission updates.
+</p>
+<a href="north-campus.html" class="btn btn-primary">Explore</a>
+</div>
+</div>
 
-    <div class="col-md-4">
-        <div class="card p-4 text-center h-100">
-            <h4>Off Campus</h4>
-            <p class="text-muted">
-                Browse all Off Campus colleges, seat availability, courses and admission guidance.
-            </p>
-            <a href="off-campus.html" class="btn btn-primary">Explore</a>
-        </div>
-    </div>
+<div class="col-md-4">
+<div class="card p-4 text-center h-100">
+<h4>South Campus</h4>
+<p class="text-muted">
+Find information about South Campus colleges, courses, cut-offs and admissions.
+</p>
+<a href="south-campus.html" class="btn btn-primary">Explore</a>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card p-4 text-center h-100">
+<h4>Off Campus</h4>
+<p class="text-muted">
+Browse all Off Campus colleges, seat availability, courses and admission guidance.
+</p>
+<a href="off-campus.html" class="btn btn-primary">Explore</a>
+</div>
+</div>
 
 </div>
 <section id="videos" class="container py-5">
-    <h2 class="section-title">Latest Videos</h2>
+<h2 class="section-title">Latest Videos</h2>
 
-    <div class="row g-4">
+<div class="row g-4">
 
-        <div class="col-md-6">
-            <div class="ratio ratio-16x9">
-                <iframe
-                    src="https://www.youtube.com/embed/la1dAQe2AcU"
-                    title="Video 1"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+<div class="col-md-6">
+<div class="ratio ratio-16x9">
+<iframe
+src="https://www.youtube.com/embed/la1dAQe2AcU"
+title="Video 1"
+allowfullscreen>
+</iframe>
+</div>
+</div>
 
-        <div class="col-md-6">
-            <div class="ratio ratio-16x9">
-                <iframe
-                    src="https://www.youtube.com/embed/FeRjakjaMcg"
-                    title="Video 2"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+<div class="col-md-6">
+<div class="ratio ratio-16x9">
+<iframe
+src="https://www.youtube.com/embed/FeRjakjaMcg"
+title="Video 2"
+allowfullscreen>
+</iframe>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 <section id="contact" class="container py-5">
 <h2 class="section-title">Contact Us</h2>
