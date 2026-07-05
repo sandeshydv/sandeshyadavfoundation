@@ -9,55 +9,78 @@
 
 <style>
 :root{
---primary:#0f4c81;
---gold:#f4b400;
+  --primary:#0f4c81;
+  --gold:#f4b400;
 }
 
 body{
-background:#f5f7fa;
-font-family:Arial,sans-serif;
+  background:#f5f7fa;
+  font-family:Arial,sans-serif;
 }
 
+.topbar{background:var(--primary);color:#fff;padding:8px;text-align:center}
+.navbar{background:var(--primary)!important}
+
 .header{
-background:var(--primary);
-color:white;
-padding:25px;
-text-align:center;
+  background:var(--primary);
+  color:white;
+  padding:25px;
+  text-align:center;
 }
 
 .college-card{
-border:none;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(0,0,0,.1);
-transition:.3s;
+  border:none;
+  border-radius:15px;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+  transition:.3s;
 }
 
 .college-card:hover{
-transform:translateY(-5px);
+  transform:translateY(-5px);
 }
 
 .college-name{
-text-decoration:none;
-font-weight:bold;
-font-size:20px;
-color:var(--primary);
+  text-decoration:none;
+  font-weight:bold;
+  font-size:20px;
+  color:var(--primary);
 }
 
 .college-name:hover{
-color:var(--gold);
+  color:var(--gold);
 }
 
 .footer{
-background:var(--primary);
-color:white;
-padding:20px;
-text-align:center;
-margin-top:40px;
+  background:var(--primary);
+  color:white;
+  padding:20px;
+  text-align:center;
+  margin-top:40px;
 }
 </style>
 
 </head>
 <body>
+
+<div class="topbar">
+📞 +91 1234567890 | ✉️ vivoy15ssandesh@gmail.com
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">SYF</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#du">Delhi University</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#videos">Videos</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <div class="header">
 <h1>South Campus Colleges</h1>
