@@ -613,7 +613,24 @@ if(statsSection){
   }, {threshold:0.3});
   observer.observe(statsSection);
 }
- 
+   // ========== LANGUAGE POPUP FUNCTIONS (Original code, unchanged) ==========
+    var lpSelected = 'hi';
+    var lpBtnLabels = { hi: 'हिंदी में जारी रखें →', en: 'Continue in English →', mr: 'मराठीत सुरू ठेवा →' };
+
+    function lpSelect(el) {
+        document.querySelectorAll('.lp-opt').forEach(function(o){ o.classList.remove('active'); });
+        el.classList.add('active');
+        lpSelected = el.getAttribute('data-lang');
+        document.getElementById('lpBtn').textContent = lpBtnLabels[lpSelected];
+    }
+
+    function lpApply() {
+        document.getElementById('langPopupOverlay').style.display = 'none';
+        if (typeof toggleLanguage === 'function') {
+            toggleLanguage(lpSelected);
+        }
+    }
+
 // ===== NEWSLETTER SIGNUP (front-end only placeholder) =====
 const signupForm = document.getElementById('signupForm');
   if(signupForm){
