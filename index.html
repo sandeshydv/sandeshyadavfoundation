@@ -144,7 +144,257 @@ body{font-family:Arial,sans-serif}
   70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}
   100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
+<!-- ================= AI ASSISTANT ================= -->
 
+<style>
+.ai-float-btn{
+  position:fixed;
+  bottom:95px;
+  right:24px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:none;
+  background:#0f4c81;
+  color:white;
+  font-size:28px;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+  cursor:pointer;
+  z-index:1001;
+}
+
+.ai-float-btn:hover{
+  transform:scale(1.05);
+}
+
+.ai-box{
+  position:fixed;
+  right:24px;
+  bottom:165px;
+  width:350px;
+  max-width:calc(100vw - 30px);
+  height:500px;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
+  z-index:1002;
+  display:none;
+  overflow:hidden;
+  flex-direction:column;
+}
+
+.ai-header{
+  background:#0f4c81;
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+}
+
+.ai-close{
+  background:none;
+  border:none;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.ai-messages{
+  flex:1;
+  padding:15px;
+  overflow-y:auto;
+  background:#f5f7fa;
+}
+
+.ai-message{
+  margin-bottom:12px;
+  padding:10px 12px;
+  border-radius:12px;
+  max-width:85%;
+  line-height:1.4;
+  white-space:pre-wrap;
+}
+
+.ai-user{
+  background:#0f4c81;
+  color:white;
+  margin-left:auto;
+}
+
+.ai-bot{
+  background:white;
+  color:#222;
+  box-shadow:0 1px 4px rgba(0,0,0,.1);
+}
+
+.ai-input-area{
+  display:flex;
+  padding:10px;
+  border-top:1px solid #ddd;
+  background:white;
+}
+
+.ai-input{
+  flex:1;
+  border:1px solid #ccc;
+  border-radius:20px;
+  padding:10px 14px;
+  outline:none;
+}
+
+.ai-send{
+  margin-left:8px;
+  border:none;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  background:#0f4c81;
+  color:white;
+  cursor:pointer;
+}
+
+@media(max-width:500px){
+  .ai-box{
+    right:10px;
+    bottom:160px;
+    width:calc(100vw - 20px);
+    height:60vh;
+  }
+
+  .ai-float-btn{
+    right:15px;
+  }
+}
+</style>
+
+<button class="ai-float-btn" onclick="toggleAI()" aria-label="Open AI Assistant">
+  🤖
+</button>
+
+<div class="ai-box" id="aiBox">
+
+  <div class="ai-header">
+    <span>🤖 AI Assistant</span>
+    <button class="ai-close" onclick="toggleAI()">×</button>
+  </div>
+
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-message ai-bot">
+      👋 Hello! I'm your AI Assistant. Ask me anything about DU, CUET, admissions or studies.
+    </div>
+  </div>
+
+  <div class="ai-input-area">
+    <input
+      type="text"
+      id="aiInput"
+      class="ai-input"
+      placeholder="Ask something..."
+      onkeydown="if(event.key==='Enter') askAI()"
+    >
+    <button class="ai-send" onclick="askAI()">➤</button>
+  </div>
+
+</div>
+
+<script>
+function toggleAI(){
+  const box = document.getElementById("aiBox");
+
+  if(box.style.display === "flex"){
+    box.style.display = "none";
+  }else{
+    box.style.display = "flex";
+    document.getElementById("aiInput").focus();
+  }
+}
+
+async function askAI(){
+
+  const input = document.getElementById("aiInput");
+  const messages = document.getElementById("aiMessages");
+
+  const message = input.value.trim();
+
+  if(!message) return;
+
+  messages.innerHTML += `
+    <div class="ai-message ai-user">
+      ${escapeAIText(message)}
+    </div>
+  `;
+
+  input.value = "";
+
+  const loading = document.createElement("div");
+  loading.className = "ai-message ai-bot";
+  loading.textContent = "Thinking...";
+  messages.appendChild(loading);
+
+  messages.scrollTop = messages.scrollHeight;
+
+  try{
+
+    const response = await fetch(
+      "https://YOUR-VERCEL-DOMAIN.vercel.app/api/chat",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          message:message
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    loading.remove();
+
+    if(data.answer){
+
+      const answer = document.createElement("div");
+      answer.className = "ai-message ai-bot";
+      answer.textContent = data.answer;
+
+      messages.appendChild(answer);
+
+    }else{
+
+      const error = document.createElement("div");
+      error.className = "ai-message ai-bot";
+      error.textContent = "Sorry, something went wrong.";
+      messages.appendChild(error);
+
+    }
+
+  }catch(error){
+
+    loading.remove();
+
+    const errorMessage = document.createElement("div");
+    errorMessage.className = "ai-message ai-bot";
+    errorMessage.textContent =
+      "Unable to connect to the AI server.";
+
+    messages.appendChild(errorMessage);
+
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function escapeAIText(text){
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
+
+<!-- ================= END AI ASSISTANT ================= -->
 /* ===== COLLEGE COMPARISON TOOL ===== */
 /* ===== NEWSLETTER SIGNUP ===== */
 .newsletter-section{
