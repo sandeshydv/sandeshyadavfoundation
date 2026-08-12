@@ -207,6 +207,7 @@ body{font-family:Arial,sans-serif}
         <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
         <li class="nav-item"><a class="nav-link" href="#videos">Videos</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+         <li class="nav-item"><a class="nav-link" href="login.html" id="loginNavLink">student login</a></li>
       </ul>
     </div>
   </div>
@@ -362,28 +363,47 @@ body{font-family:Arial,sans-serif}
   </div>
 </section>
 
-<section id="study-materials" class="container py-5">
-  <h2 class="section-title">Study Materials</h2>
-  <p class="text-muted" style="max-width:800px;">
-    Our support isn't limited to DU or CUET aspirants — we help students studying in
-    any college or university with resources and guidance to do better academically
-    and plan their careers. This includes handwritten and typed <strong>notes</strong>,
-    <strong>previous year questions (PYQs)</strong>, <strong>book PDFs</strong>,
-    and <strong>video lectures</strong> across subjects and semesters, along with
-    ongoing career guidance for life after graduation.
-  </p>
+<section id="pdfs" class="container py-5">
+  <h2 class="section-title">Latest Study Material</h2>
 
-  <div class="card p-4 shadow-sm mb-4">
+  <div id="pdfLoggedOut" class="card p-4 shadow-sm text-center">
+    <p class="mb-3">🔒 Please log in with your student access code to view study material.</p>
+    <a href="login.html" class="btn btn-primary">Student Login</a>
+  </div>
+
+  <div id="pdfLoggedIn" class="card p-4 shadow-sm" style="display:none;">
+    <p id="welcomeMsg" class="text-muted"></p>
     <h4>B.Sc. Physical Science Semester 5</h4>
     <p class="text-muted">Semester 5 PDF Notes / Study Material.</p>
     <a href="pdfs/bsc-phy-sci-sem-5.pdf" target="_blank" class="btn btn-primary me-2">View PDF</a>
-    <a href="pdfs/bsc-phy-sci-sem-5.pdf" download class="btn btn-success">Download PDF</a>
+    <a href="pdfs/bsc-phy-sci-sem-5.pdf" download class="btn btn-success me-2">Download PDF</a>
+    <button onclick="syfLogout()" class="btn btn-outline-secondary">Logout</button>
   </div>
-
-  <a href="study-materials.html" class="btn btn-warning btn-lg">📚 Explore All Study Materials</a>
 </section>
 
-<!-- ================= MY BOOKS SECTION ================= -->
+<script>
+// Shared client-side gate check (see login.html for details/limitations).
+(function(){
+  const loggedIn = sessionStorage.getItem('syf_logged_in') === 'true';
+  const name = sessionStorage.getItem('syf_student_name');
+  const loggedOutBox = document.getElementById('pdfLoggedOut');
+  const loggedInBox = document.getElementById('pdfLoggedIn');
+  const navLink = document.getElementById('loginNavLink');
+
+  if(loggedIn){
+    loggedOutBox.style.display = 'none';
+    loggedInBox.style.display = 'block';
+    document.getElementById('welcomeMsg').innerText = 'Welcome, ' + name + '!';
+    if(navLink) navLink.innerText = '👋 ' + name;
+  }
+})();
+
+function syfLogout(){
+  sessionStorage.removeItem('syf_logged_in');
+  sessionStorage.removeItem('syf_student_name');
+  window.location.reload();
+}
+</script><!-- ================= MY BOOKS SECTION ================= -->
 <section id="books" class="container py-5">
   <h2 class="section-title text-center">My Books</h2>
   <div class="row justify-content-center">
